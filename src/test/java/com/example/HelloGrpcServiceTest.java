@@ -20,6 +20,7 @@ public class HelloGrpcServiceTest {
         HelloReply reply = helloGrpc
                 .sayHello(HelloRequest.newBuilder().setName("Neo").build()).await().atMost(Duration.ofSeconds(5));
         assertEquals("Hello Neo!", reply.getMessage());
+        assertEquals(123, reply.getStatusCode());
     }
 
 }
